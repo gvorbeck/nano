@@ -1,0 +1,29 @@
+@import "../modules/colors";
+@import "../modules/variables";
+//@import "../modules/mixins";
+//@import "../modules/extends";
+/*------------------------------------*\
+    #SITE-ARCHITECTURE
+    Excluding Header and Footer.
+\*------------------------------------*/
+* + * {
+  margin-top: 1.5em;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $font-text;
+  //color: $color-tertiary;
+}
+body {
+  background: #ececec;
+}
+main {
+  //background: $color-quarternary;
+  padding: gutter();
+}
+a {
+  text-decoration: none;
+  color: $color-secondary;
+}

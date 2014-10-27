@@ -1,0 +1,36 @@
+/*!
+Theme Name: Conduit
+Theme URI: 
+Author: Garrett Vorbeck
+Author URI: http://iamgarrett.com
+Description: 
+Version: 1.0
+License: MIT 2014
+License URI: http://opensource.org/licenses/MIT
+Tags: none
+
+This theme is licensed under the MIT license.
+*/
+
+// Compass
+@import "compass/css3";
+@import "susy";
+@import "breakpoint";
+@import "partials/grids";
+
+
+// Reset
+@import "partials/reset";
+
+// Modules and Variables
+@import "partials/base";
+
+// Partials
+//@import "partials/login";
+//@import "partials/nav";
+@import "partials/header";
+//@import "partials/spinner";
+//@import "partials/popup";
+//@import "partials/book_shelf";
+//@import "partials/book";
+//@import "partials/footer";
