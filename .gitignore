@@ -1,0 +1,9 @@
+*.DS_Store
+index.php
+.sass-cache/
+uploads/
+upgrade/
+themes/index.php
+themes/twentyfourteen/
+themes/twentythirteen/
+themes/twentytwelve/
