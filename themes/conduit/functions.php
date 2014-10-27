@@ -12,7 +12,10 @@ define('SITE_URL', $_SERVER['HTTP_HOST']);
 
 // Register Custom Menus
 if ( function_exists( 'register_nav_menus' ) ) {
-  register_nav_menus( );
+  function register_my_menu() {
+    register_nav_menu('header-menu',__( 'Header Menu' ));
+  }
+  add_action( 'init', 'register_my_menu' );
 }
 /* END GETTING THEME FUNCTIONALITY SET UP */
 

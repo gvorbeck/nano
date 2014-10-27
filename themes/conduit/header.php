@@ -33,7 +33,14 @@
 
 </head>
 
-<body <?php body_class(); ?> id="top">
+<body <?php body_class(); ?>>
     <header role="banner">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a>
+        <div href="javascript:;" class="menu">
+          <div class="bars">
+            <div class="top"></div>
+            <div class="bottom"></div>
+          </div>
+        </div>
+        <a id="site--title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a>
     </header>
+    <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>

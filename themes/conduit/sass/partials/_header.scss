@@ -1,5 +1,101 @@
 body > header {
-  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-  padding: gutter();
+  box-shadow: 0 0 .25rem rgba(0,0,0,.14),0 .25rem .5rem rgba(0,0,0,.28);
+  padding: 1rem;
   background: $color-primary;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  height: 4.5rem;
+}
+#site--title {
+  margin-top: .5rem;
+  display: block;
+}
+.menu-hamburger-container {
+  position: relative;
+  left: -100%;
+  width: 25%;
+  min-width: 15.625rem;
+  background: white;
+  height: 100%;
+  margin: 0;
+  padding: 5.5rem 1.5rem 1.5rem;
+  box-shadow: 0 0 .25rem rgba(0,0,0,.14),.125rem .25rem .5rem rgba(0,0,0,.28);
+  
+  &.expand {
+    left: 0;
+  }
+}
+
+// Menu Bar
+$timing: 500ms;
+.menu {
+  border: .0625rem solid transparent;
+  height: 2.5rem;
+  width: 2.5rem;
+  float: left;
+  margin-right: 1rem;
+  @include transition (all $timing);
+  
+  &.animate-1 {
+    @include transform(rotate(-180deg));
+  }
+  &.animate-2 {
+    @include transform(rotate(-360deg));
+  }
+}
+
+.bars {
+  position: relative;
+  margin-top: 1.125rem;
+  height: .25rem;
+  width: 2.5rem;
+  background-color: white;
+  @include border-left-radius(.25rem);
+  @include border-right-radius(.25rem);
+  
+  .animate-1 & {
+    .top {
+      width: 60%;
+      @include transform(rotate(45deg) translateY(-.125rem) translateX(.125rem));
+    }
+    .bottom {
+      width: 60%;
+      @include transform(rotate(-45deg) translateY(.125rem) translateX(.125rem));
+    }
+    .animate-2 & {
+      .top {
+        width: 2.5rem;
+        @include transform(rotate(0deg) translateY(0) translateX(0));
+      }
+      .bottom {
+        width: 2.5rem;
+        @include transform(rotate(0deg) translateY(0) translateX(0));
+      }
+    }
+  }
+  
+  .top {
+    height: .25rem;
+    width: 2.5rem;
+    position: absolute;
+    top: -.5rem;
+    right: 0;
+    background-color: white;
+    @include border-left-radius(.25rem);
+    @include border-right-radius(.25rem);
+    @include transition (all $timing);
+  }
+  .bottom {
+    height: .25rem;
+    width: 2.5rem;
+    position: absolute;
+    bottom: -.5rem;
+    right: 0;
+    background-color: white;
+    @include border-left-radius(.25rem);
+    @include border-right-radius(.25rem);
+    @include transition (all $timing);
+  }
 }
