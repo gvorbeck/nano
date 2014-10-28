@@ -52,12 +52,18 @@ function conduit_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'conduit_excerpt_more');
 
-function conduit_post_stub() {
+function conduit_post( $stub ) {
+  $post = get_post();
   $unix_time = strtotime( get_the_date() );
   echo '<article class="post post--stub">';
     echo '<h1><a href="' . get_the_permalink() . '">' . get_the_title( ) . '</a></h1>';
     echo '<time datetime="' . date( 'Y-m-d H:i' ) . '">' . get_the_date() . '</time>';
-    echo apply_filters( 'the_content', get_the_excerpt() );
+    if ( $stub ) {
+      echo apply_filters( 'the_content', get_the_excerpt() );
+    } else {
+      echo apply_filters( 'the_content', $post->post_content );
+      //var_dump($post);
+    }
   echo '</article>';
 }
 function conduit_svg_hamburger() {

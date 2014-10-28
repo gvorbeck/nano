@@ -11,7 +11,7 @@ if ( $chapters_query->have_posts() ) {
   echo '<div class="post--list">';
   while ( $chapters_query->have_posts() ) {
     $chapters_query->the_post();
-    conduit_post_stub();
+    conduit_post( true );
   }
 }
 
