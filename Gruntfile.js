@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     uglify: {
       min: {
         files: {
-          'themes/conduit/javascripts/site.min.js': ['themes/conduit/javascripts/partials/html.sortable.js', 'themes/conduit/javascripts/partials/jquery.sticky.js', 'themes/conduit/javascripts/partials/site.js']
+          'themes/conduit/javascripts/site.min.js': ['themes/conduit/javascripts/partials/menu.js', 'themes/conduit/javascripts/partials/site.js']
         }
       }
     },
