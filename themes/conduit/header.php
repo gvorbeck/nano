@@ -38,11 +38,15 @@
         <?php echo conduit_svg_hamburger(); ?>
         <h1><a id="site--title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a></h1>
     </header>
-    <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+    <?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'menu-hamburger-container' ) ); ?>
     <button class="button--add-post button">
       <span>+</span>
     </button>
     <main>
       <?php if ( is_page() ) {
         echo '<h1>' . get_the_title() . '</h1>';
+      } else if ( is_category() ) {
+        echo '<h1>';
+        single_cat_title();
+        echo '</h1>';
       }

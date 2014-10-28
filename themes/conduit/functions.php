@@ -56,7 +56,15 @@ function conduit_post( $stub ) {
   $post = get_post();
   $unix_time = strtotime( get_the_date() );
   echo '<article class="post post--stub">';
-    echo '<h1><a href="' . get_the_permalink() . '">' . get_the_title( ) . '</a></h1>';
+    echo '<h1>';
+    if ( ! is_single() ) {
+        echo '<a href="' . get_the_permalink() . '">';
+    }
+    the_title();
+    if ( ! is_single() ) {
+      echo '</a>';
+    }
+    echo '</h1>';
     echo '<time datetime="' . date( 'Y-m-d H:i' ) . '">' . get_the_date() . '</time>';
     if ( $stub ) {
       echo apply_filters( 'the_content', get_the_excerpt() );
