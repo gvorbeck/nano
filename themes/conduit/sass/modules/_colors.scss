@@ -1,3 +1,9 @@
-//http://coolors.co/f2eecb-f7c258-38444a-f85550-370320
-$color-primary: #F7C258;
-$color-secondary: #38444A;
+//http://coolors.co/eed4b3-f7c258-6e7975-f85550-70525a
+$color-primary: #F7C258; // yellow
+$color-secondary: #6E7975; // green
+$color-tertiary: #F85550; // red
+$color-quaternary: #70525A; // purple
+
+@function color--shadow($color) {
+  @return adjust-color($color, $red: -6, $green: -13, $blue: -24);
+}

@@ -1,0 +1,14 @@
+.post {
+  background: white;
+  padding: gutter();
+  box-shadow: 0 0 .125rem rgba(0,0,0,.12),0 .125rem .25rem rgba(0,0,0,.24);
+  
+  h1 {
+    font-weight: bold;
+    color: $color-secondary;
+  }
+  time {
+    color: #BBBBBB;
+    font-size: $font-size-4;
+  }
+}

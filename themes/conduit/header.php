@@ -35,12 +35,14 @@
 
 <body <?php body_class(); ?>>
     <header role="banner">
-        <div href="javascript:;" class="menu">
-          <div class="bars">
-            <div class="top"></div>
-            <div class="bottom"></div>
-          </div>
-        </div>
-        <a id="site--title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a>
+        <?php echo conduit_svg_hamburger(); ?>
+        <h1><a id="site--title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a></h1>
     </header>
     <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+    <button class="button--add-post button">
+      <span>+</span>
+    </button>
+    <main>
+      <?php if ( is_page() ) {
+        echo '<h1>' . get_the_title() . '</h1>';
+      }

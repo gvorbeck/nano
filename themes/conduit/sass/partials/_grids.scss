@@ -3,3 +3,7 @@ $susy: (
   gutters: 1/4,
   global-box-sizing: border-box,
 );
+
+main {
+  @include container(75%);
+}

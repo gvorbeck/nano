@@ -44,3 +44,22 @@ if ( ! is_admin() && ! is_login_page() ) {
   }
   add_action( 'wp_enqueue_scripts', 'site_scripts' );
 }
+
+// Replaces the excerpt "more" text by a link
+function conduit_excerpt_more($more) {
+  global $post;
+	return ' <a class="post--more" href="'. get_permalink($post->ID) . '">Read more...</a>';
+}
+add_filter('excerpt_more', 'conduit_excerpt_more');
+
+function conduit_post_stub() {
+  $unix_time = strtotime( get_the_date() );
+  echo '<article class="post post--stub">';
+    echo '<h1><a href="' . get_the_permalink() . '">' . get_the_title( ) . '</a></h1>';
+    echo '<time datetime="' . date( 'Y-m-d H:i' ) . '">' . get_the_date() . '</time>';
+    echo apply_filters( 'the_content', get_the_excerpt() );
+  echo '</article>';
+}
+function conduit_svg_hamburger() {
+  return '<svg class="svg svg--hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3V18z M3 13h18v-2H3V13z M3 6v2h18V6H3z"/></svg>';
+}
