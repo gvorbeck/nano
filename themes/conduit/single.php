@@ -1,12 +1,10 @@
 <?php
 get_header();
 
-conduit_post();
-echo '<ol class="comment--list">';
-    wp_list_comments( array( 'style' => 'ol' ) );
-echo '</ol>';
-$comments = get_comments();
-var_dump($comments);
+while ( have_posts() ) {
+  the_post();
+  get_template_part( 'content', get_post_format() );
+}
 comment_form();
 
 get_footer();

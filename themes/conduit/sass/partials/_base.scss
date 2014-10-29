@@ -1,13 +1,13 @@
 @import "../modules/colors";
 @import "../modules/variables";
 //@import "../modules/mixins";
-//@import "../modules/extends";
+@import "../modules/extends";
 /*------------------------------------*\
     #SITE-ARCHITECTURE
     Excluding Header and Footer.
 \*------------------------------------*/
 * + * {
-  margin-top: 1.5em;
+  margin-top: gutter();
 }
 * {
   box-sizing: border-box;

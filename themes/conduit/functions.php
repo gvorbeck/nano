@@ -39,6 +39,7 @@ if ( ! is_admin() && ! is_login_page() ) {
     function site_scripts() {
       wp_register_script( 'site-js', get_template_directory_uri() . '/javascripts/site.min.js', array('jquery'), date('W.0'), true );
       wp_enqueue_script( 'jquery' );
+      wp_enqueue_script( 'comment-reply' );
       wp_enqueue_script( 'site-js' );
     }
   }
@@ -52,27 +53,24 @@ function conduit_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'conduit_excerpt_more');
 
-function conduit_post( $stub ) {
-  $post = get_post();
-  $unix_time = strtotime( get_the_date() );
-  echo '<article class="post post--stub">';
-    echo '<h1>';
-    if ( ! is_single() ) {
-        echo '<a href="' . get_the_permalink() . '">';
+function conduit_comment_list( $id ) {
+  $comments = get_comments( array( 'post_id' => $id ) );
+  echo '<div class="post--comment-list">';
+    echo '<h2>Comments</h2>';
+    foreach ( $comments as $c ) {
+      $unix_time = strtotime( $c->comment_date );
+      $args      = '';
+      echo '<article id="comment-' . $c->comment_ID . '" class="post--comment">';
+        echo '<header>' . get_avatar( $c->comment_author_email, 96 ) . '<h1>' . $c->comment_author . '</h1><time datetime="' . date( 'Y-m-d H:i', $unix_time ) . '">' . date( 'l, F jS \a\t g:iA', $unix_time ) . '</time></header>';
+        echo 'hello' . get_comment_reply_link();
+        echo '<div class="post--comment-content">' . apply_filters( 'the_content', $c->comment_content ) . '</div>';
+      echo '</article>';
+      
+      echo '<!-- ';
+      var_dump($c);
+      echo ' -->';
     }
-    the_title();
-    if ( ! is_single() ) {
-      echo '</a>';
-    }
-    echo '</h1>';
-    echo '<time datetime="' . date( 'Y-m-d H:i' ) . '">' . get_the_date() . '</time>';
-    if ( $stub ) {
-      echo apply_filters( 'the_content', get_the_excerpt() );
-    } else {
-      echo apply_filters( 'the_content', $post->post_content );
-      //var_dump($post);
-    }
-  echo '</article>';
+  echo '</div>';
 }
 function conduit_svg_hamburger() {
   return '<svg class="svg svg--hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3V18z M3 13h18v-2H3V13z M3 6v2h18V6H3z"/></svg>';
