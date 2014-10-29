@@ -6,7 +6,7 @@ body > header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   
   h1 {
     margin-top: .25rem;
@@ -51,6 +51,7 @@ body > header {
   @include transition-property(transform);
   @include transition-duration(.15s);
   @include transition-timing-function(ease-in-out);
+  z-index: 1;
   
   &.expand {
     @include transform(translateX(0));
@@ -67,6 +68,20 @@ body > header {
   border-radius: 50%;
   box-shadow: 0 0 .25rem rgba(0,0,0,.14),0 .25rem .5rem rgba(0,0,0,.28);
   outline: none;
+  color: white;
+  font-size: $font-size-7;
+  font-weight: lighter;
+  text-align: center;
+  z-index: 1;
+  
+  &:hover {
+    border: none;
+  }
+  
+  span {
+    margin-top: .25rem;
+    display: block;
+  }
 }
 main {
   margin-top: 5.5rem;

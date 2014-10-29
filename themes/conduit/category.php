@@ -1,10 +1,12 @@
 <?php
 get_header();
 
-$args = array(
+$cat     = get_query_var('cat');
+$yourcat = get_category ($cat);
+$args    = array(
   'orderby'       => 'date ID',
   'order'         => 'ASC',
-  'category_name' => 'chapters',
+  'category_name' => $yourcat->slug,
 );
 $chapters_query = new WP_Query( $args );
 if ( $chapters_query->have_posts() ) {

@@ -20,12 +20,12 @@
 	bloginfo('name'); echo " - "; bloginfo('description');
 	}
 ?>" />
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- The little things -->
-	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
   <link rel="shortcut icon" href="<?php echo bloginfo('template_directory'); ?>/favicon.png">
 <!-- The little things -->
 
@@ -39,9 +39,9 @@
         <h1><a id="site--title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="logo"><?php bloginfo( 'name' ); ?></a></h1>
     </header>
     <?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'menu-hamburger-container' ) ); ?>
-    <button class="button--add-post button">
+    <a href="<?php echo admin_url() . 'post-new.php'; ?>" class="button--add-post button">
       <span>+</span>
-    </button>
+    </a>
     <main>
       <?php if ( is_page() ) {
         echo '<h1>' . get_the_title() . '</h1>';
