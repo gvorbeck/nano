@@ -1,0 +1,31 @@
+#loginform {
+  text-align: center;
+  @include span(50%);
+  @include push(25%);
+  @extend %box;
+}
+.login-username,
+.login-password {
+  
+  input {
+    @extend %input;
+  }
+  label {
+    display: none;
+  }
+}
+.login-remember {
+  width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-size: $font-size-4;
+}
+#wp-submit {
+  @extend %button;
+  width: 15rem;
+  
+  &:hover {
+    @extend %button-hover;
+  }
+}
