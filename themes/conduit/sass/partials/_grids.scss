@@ -4,6 +4,7 @@ $susy: (
   global-box-sizing: border-box,
 );
 
-main {
+main,
+#site-footer {
   @include container(75%);
 }
