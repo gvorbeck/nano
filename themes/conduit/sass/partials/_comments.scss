@@ -1,3 +1,4 @@
+
 .post--comment-container {
   padding-top: gutter();
   border-top: .0625rem solid #DDDDDD;
@@ -19,15 +20,16 @@
     border: .25rem solid $color-primary;
     border-radius: 50%;
   }
-  cite {
+  .fn {
     font-weight: normal;
     margin-top: 0;
     font-size: $font-size-6;
+    float: left;
   }
   .says {
     display: none;
   }
-  p {
+  .comment-content {
     font-size: $font-size-4;
     clear: both;
   }
@@ -39,16 +41,15 @@
     font-size: $font-size-4;
   }
 }
-.comment-author {
+/*.comment-author {
   overflow: hidden;
   float: left;
-}
-.comment-meta {
+}*/
+.comment-metadata {
   overflow: hidden;
   margin-right: 2.9375rem;
   padding-right: 1rem;
   border-right: .0625rem solid #DDDDDD;
-  opacity: .6;
   font-size: $font-size-4;
   margin-top: 0;
   position: relative;
@@ -57,8 +58,8 @@
   a {
     float: right;
     
-    &:hover {
-      border: none;
+    time {
+      //color: $color-secondary;
     }
   }
 }
@@ -68,6 +69,10 @@
 }
 #respond {
   @extend %box;
+  
+  p + p {
+    text-indent: 0;
+  }
 }
 #reply-title {
   font-size: $font-size-6;

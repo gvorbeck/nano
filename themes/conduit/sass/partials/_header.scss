@@ -21,15 +21,23 @@ body > header {
       }
     }
   }
+  form {
+    margin: 0;
+    
+    label {
+      
+      span {
+        display: none;
+      }
+    }
+  }
 }
-.svg--hamburger {
+.svg {
   fill: white;
-  display: block;
   width: 2rem;
-  float: left;
-  margin: 0 1rem 0 0;
-  padding: .25rem;
   opacity: .6;
+  padding: .25rem;
+  height: 2rem;
   
   &:hover {
     background: color--shadow($color-primary);
@@ -38,6 +46,46 @@ body > header {
     opacity: 1;
   }
 }
+.svg--hamburger {
+  display: block;
+  float: left;
+  margin: 0 1rem 0 0;
+}
+#site--admin {
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  margin: 0;
+  
+  &:hover {
+    border: none;
+  }
+}
+// Search
+.search-submit {
+  display: none;
+}
+.search-field {
+  width: 30rem;
+  padding: .25rem 1rem;
+  position: absolute;
+  top: .5rem;
+  left: 50%;
+  margin: 0 0 0 -15rem;
+  border-radius: .125rem;
+  outline: none;
+  color: white;
+  @include background--opacity( white, .25 );
+  
+  &:hover,
+  &:focus {
+    @include background--opacity( white, .4 );
+  }
+  @include input-placeholder {
+    color: white;
+  }
+}
+// Menu
 .menu-hamburger-container {
   width: 21.875rem;
   position: fixed;
