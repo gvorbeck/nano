@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <header>
     <?php
-		if ( is_single() ) {
+		if ( is_single() || is_page() ) {
 			the_title( '<h1>', '</h1>' );
 		} else {
 		  the_title( '<h1><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
@@ -11,7 +11,7 @@
   </header>
   <div class="post--content">
     <?php
-    if ( ! is_single() ) {
+    if ( ! is_single() && ! is_page() ) {
 		  the_excerpt();
 		} else {
   		the_content();

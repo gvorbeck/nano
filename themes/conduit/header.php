@@ -35,10 +35,8 @@
     </a>
   <?php } ?>
   <main>
-    <?php if ( is_page() ) {
-      echo '<h1>' . get_the_title() . '</h1>';
-    } else if ( is_category() ) {
-      echo '<h1>';
-      single_cat_title();
-      echo '</h1>';
+    <?php if ( is_category() ) {
+      echo '<h1>' . single_cat_title( '', false ) . '</h1>';
+    } else if ( is_search() ) {
+      echo '<h1>Search Results for "' . get_search_query() . '"</h1>';
     }

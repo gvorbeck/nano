@@ -1,4 +1,4 @@
-.post {
+.hentry {
   @extend %box;
   
   h1 {
@@ -44,11 +44,16 @@
   }
 }
 
-// Single Post Page
+// Single Post/Page
 .single {
   .post {
     h1 {
       font-size: $font-size-6;
     }
+  }
+}
+.page.hentry {
+  h1 {
+    font-size: $font-size-6;
   }
 }
