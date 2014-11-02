@@ -62,6 +62,12 @@ function conduit_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'conduit_excerpt_more');
 
+function conduit_word_count() {
+    $content = get_post_field( 'post_content', $post->ID );
+    $word_count = str_word_count( strip_tags( $content ) );
+    return $word_count;
+}
+
 function conduit_svg_hamburger() {
   return '<svg class="svg svg--hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3V18z M3 13h18v-2H3V13z M3 6v2h18V6H3z"/></svg>';
 }
